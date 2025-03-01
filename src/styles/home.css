@@ -1,0 +1,154 @@
+#home {
+    display: flex;
+    min-height: calc(100vh - 91px);
+    position: relative;
+    overflow: hidden;
+    /* Previne overflow horizontal */
+    max-width: 100%;
+    /* Limita a largura máxima */
+}
+
+#cta {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px; /* Aumentado para dar mais espaço entre elementos */
+    margin-top: 8%; /* Aumentado para descer um pouco mais */
+    padding-left: 60px; /* Aumentado o padding lateral */
+}
+
+#cta .title {
+    font-size: 4.2rem; /* Aumentado de 3.5rem para 4.2rem */
+    line-height: 1.2;
+    margin-bottom: 15px; /* Aumentado para dar mais espaço */
+    color: var(--color-neutral-1);
+}
+
+#cta .title span {
+    color: var(--color-primary-6);
+}
+
+#cta .description {
+    font-size: 1.3rem; /* Aumentado de 1.1rem para 1.3rem */
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+#cta_buttons {
+    display: flex;
+    gap: 30px; /* Aumentado o espaço entre os botões */
+    align-items: center;
+    margin-top: 3px; /* Espaçamento adicional */
+    margin-bottom: -15px; /* Reduzido de 10px para 5px para aproximar as redes sociais */
+    flex-wrap: nowrap; /* Impede a quebra de linha */
+    white-space: nowrap; /* Impede quebra do texto */
+}
+
+#cta_buttons a {
+    text-decoration: none;
+    color: var(--color-neutral-1);
+    display: flex;
+    align-items: center;
+}
+
+#phone_button {
+    display: flex;
+    gap: 12px; /* Aumentado para melhor espaçamento */
+    align-items: center;
+    background-color: #ffffff;
+    padding: 10px 16px; /* Aumentado para melhor proporção */
+    font-weight: 500;
+    box-shadow: 0px 0px 12px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    white-space: nowrap; /* Impede quebra do número */
+    flex-shrink: 0; /* Impede que o botão encolha */
+}
+
+#phone_button button {
+    box-shadow: none;
+}
+
+#banner {
+    display: flex;
+    align-items: start;
+    justify-content: flex-start;
+    width: 70%;
+    z-index: 2;
+    position: relative;
+    /* Mudado de absolute para relative */
+}
+
+#banner img,
+#banner-gif {
+    max-width: 800px;
+    width: 100%;
+    height: 500px;
+    object-fit: contain;
+    margin-left: 150px;
+    border-radius: 12px; /* Mesmo valor usado nos botões */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Sombra suave opcional */
+}
+
+/* Garante que o gif também terá as mesmas propriedades */
+#banner-gif {
+    overflow: hidden; /* Garante que o conteúdo respeite o border-radius */
+}
+
+.shape {
+    background-color: var(--color-primary-2);
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    border-radius: 40% 30% 0% 20%;
+    top: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.social-media-buttons {
+    display: flex;
+    gap: 10px; /* Reduzido o espaço entre ícones */
+    margin-top: 2px; /* <- Ajuste este valor (aumentar = mais espaço, diminuir = menos espaço) */
+}
+
+/* Específico para as redes sociais da seção inicial */
+#cta .social-media-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: -5px; /* Valor negativo para subir as redes sociais */
+}
+
+@media screen and (max-width: 1170px) {
+    #home {
+        min-height: 100%;
+        padding-top: 0px;
+    }
+
+    #banner,
+    #banner img,
+    #home .shape {
+        display: none;
+    }
+
+    #cta {
+        width: 100%;
+        text-align: center;
+        align-items: center;
+        padding: 20px;
+        gap: 25px; /* Espaçamento menor em telas pequenas */
+    }
+
+    #cta .title {
+        font-size: 2.8rem; /* Menor em telas pequenas */
+    }
+
+    #cta_buttons {
+        justify-content: center; /* Centraliza os botões */
+    }
+}
+
+@media screen and (max-width: 450px) {
+    #phone_button button {
+        display: none;
+    }
+}

@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+#services {
+  min-height: 100vh;
+  padding: 40px 0;
+  background: #f9f9f9;
+}
+
+.services-slider-section {
+  position: relative;
+  height: 450px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f9f9f9;
+  padding: 20px;
+}
+
+.swiper {
+  width: 100%;
+  max-width: 1200px;
+  padding: 50px 20px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.swiper-wrapper {
+  display: flex;
+  align-items: stretch;
+}
+
+.swiper-slide {
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  max-width: 350px;
+  height: 400px; /* Altura fixa para todos os cards */
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Fundo azul na parte superior do card */
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 45%; /* % do card que fica em azul */
+  width: 100%;
+  background: #020659;
+  border-radius: 20px 20px 0 0;
+  z-index: 0;
+}
+
+/* Conteúdo interno do card */
+.card-content {
+  position: relative;
+  z-index: 1;
+  /* Espaço extra no topo para acomodar o círculo 
+     que fica parcialmente na região azul */
+  padding: 80px 20px 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Container circular da imagem */
+.card .image {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: #fff;
+  overflow: hidden;
+  /* Anel branco em volta */
+  border: 4px solid #fff;
+
+  /* Margem negativa para subir o círculo
+     metadinha de 140px = 70px */
+  margin: 0 auto;
+  margin-top: -70px; 
+}
+
+.card .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;        /* Corta e preenche sem distorcer */
+  object-position: center;  /* Centraliza a imagem dentro do círculo */
+  transition: transform 0.3s ease;
+}
+
+/* Efeito de hover para dar zoom */
+.card .image:hover img {
+  transform: scale(1.1);
+}
+
+.name-profession {
+  margin-top: 25px;
+  text-align: center;
+  width: 100%;
+  padding: 15px;
+  background: #fff;
+  border-radius: 15px;
+}
+
+.name-profession .name {
+  font-size: 20px;
+  font-weight: 600;
+  color: #020659;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.name-profession .profession {
+  font-size: 15px;
+  color: #707070;
+  display: block;
+  line-height: 1.4;
+}
+
+.button {
+  display: none;
+}
+
+.button button {
+  background-color: #F21313;
+  color: #fff;
+  border: none;
+  padding: 8px 22px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button button:hover {
+  background-color: #020659;
+}
+
+.swiper-pagination-bullet {
+  background-color: #020659;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #F21313;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  width: 40px;
+  height: 40px;
+  color: #020659;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  z-index: 100; /* Aumenta o z-index para garantir visibilidade */
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.swiper-button-next {
+  right: 0;
+}
+
+.swiper-button-prev {
+  left: 0;
+}
+
+/* Remove o efeito de escala no slide ativo */
+.swiper-slide-active {
+  transform: none;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  color: #F21313;
+}
+
+@media (max-width: 768px) {
+  .card {
+    height: auto;
+  }
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none;
+  }
+
+  /* Ajustar tamanhos para telas menores */
+  .card .image {
+    width: 180px;
+    height: 180px;
+    margin-top: -90px; 
+  }
+  .card-content {
+    padding-top: 100px;
+  }
+}
+
+@media (max-width: 425px) {
+  .card .image {
+    width: 160px;  
+    height: 160px;
+    margin-top: -80px; 
+  }
+  .card-content {
+    padding-top: 90px;
+  }
+}
